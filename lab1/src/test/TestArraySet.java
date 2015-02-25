@@ -20,6 +20,16 @@ public class TestArraySet {
 	public void tearDown() throws Exception {
 		s = null;
 	}
+	
+	@Test
+	public final void testAddAll(){
+		ArraySet<Integer> set = new ArraySet<Integer>();
+		for( int i = 0; i<10;i++){
+			set.add(i);
+			assertTrue("addAll returned fasle", s.addAll(set));
+		}
+		
+	}
 
 	@Test
 	public final void testEmpty() {
