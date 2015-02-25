@@ -26,7 +26,6 @@ public class ProblemD5 {
 				
 			}
 		}
-		System.out.print("\n");
 		for(int i : result){
 			System.out.print(i + " ");
 		}

@@ -26,11 +26,10 @@ public class ProblemD5 {
 				
 			}
 		}
-		System.out.print("\n");
-		for(int i : result){
-			System.out.print(i + " ");
-		}
 		return result;
+		
+		for (int i:result){
+			System.out.print(i + " ");
 	}
 
 	public static void main(String[]args){

@@ -26,14 +26,10 @@ public class ProblemD5 {
 				
 			}
 		}
-		System.out.print("\n");
-		for(int i : result){
-			System.out.print(i + " ");
-		}
 		return result;
 	}
 
-	public static void main(String[]args){
+	public static void main (String[]args){
 		int[] array = {6,5,5,4,3,2,2,9,7,3}; //10 element i en vektor.
 		
 		System.out.println("array:");
@@ -41,8 +37,7 @@ public class ProblemD5 {
 			System.out.print(i + " " );
 		}
 		uniqueElements(array);
-		
 		}
-}
 		
-
+	}
+}
