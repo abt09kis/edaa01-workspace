@@ -4,8 +4,11 @@ import java.util.*;
 public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	private QueueNode<E> last;
 	private int size;
+	
 
 	public FifoQueue() {
+		last  = null;
+		size = 0;
 
 	}
 
@@ -14,7 +17,7 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * @return an iterator over the elements in this queue
 	 */	
 	public Iterator<E> iterator() {
-		return null;
+		return new QueueIterator();
 	}
 
 	/**	
@@ -22,7 +25,7 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * @return the number of elements in this queue
 	 */
 	public int size() {		
-		return 0;
+		return size;
 	}
 
 	/**	
@@ -33,6 +36,18 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * 			to this queue, else false
 	 */
 	public boolean offer(E x) {
+		QueueNode<E> temp;
+		if(isEmpty()){
+			temp  = new QueueNode<E>(x);
+			last = temp; 
+			last.next = last;
+		}else{
+			temp = new QueueNode<E>(x);
+			temp.next = last.next;
+			last.next = temp;
+			last = temp;
+		}
+		size ++;
 		return true;
 	}
 
@@ -43,7 +58,14 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * @return 	the head of this queue, or null if the queue is empty 
 	 */
 	public E poll() {
-		return null;
+		if(isEmpty()){
+			return null;
+		}else{
+			QueueNode<E> first = last.next;
+			last.next = first.next;
+			size --;
+			return first.element;
+		}
 	}
 
 	/**	
@@ -53,7 +75,13 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	 * 			if this queue is empty
 	 */
 	public E peek() {
-		return null;
+		if(isEmpty()){
+			
+			return null;
+		}else{
+			QueueNode<E> first = last.next;
+			return first.element;
+		}
 	}
 
 
@@ -67,5 +95,47 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		}
 
 	}
+	
+	
+	private class QueueIterator implements Iterator<E>{
+		private QueueNode<E> pos;
+		private int count;
+		
+		private QueueIterator(){
+			pos = last;
+			count = 0;
+		}
+		
+		public boolean hasNext(){
+			if (pos == null){
+				return false;
+			}else if(count >= size){
+				return false;
+			}else{
+				return true;
+			}
+		
+		}
+
+		@Override
+		public E next() {
+			if (!hasNext()){
+				throw new NoSuchElementException();
+			}else{
+				QueueNode<E> temp = pos;
+				pos = temp.next;
+				count++ ;
+				return temp.element;
+			}
+		}
+		
+		public void remove(){
+			throw new UnsupportedOperationException();
+		}
+		
+		
+		
+	}
 
 }
+
