@@ -60,12 +60,12 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 	public E poll() {
 		if(isEmpty()){
 			return null;
-		}else{
+		}
 			QueueNode<E> first = last.next;
 			last.next = first.next;
 			size --;
 			return first.element;
-		}
+		
 	}
 
 	/**	
@@ -82,6 +82,37 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 			QueueNode<E> first = last.next;
 			return first.element;
 		}
+	}
+	/**
+	 * Appends the specified queue to this queue
+	 * post: all elements from the specified queue are appended
+	 * 		to this queue. The specified queue (q) is empty
+	 * @param q the queue to append
+	 */
+	public void append(FifoQueue<E> q){
+		if(isEmpty()){
+			last = q.last;
+			size +=q.size;
+		}else if(!q.isEmpty()){
+			QueueNode<E> temp = q.last.next;
+			last.next = q.last.next;
+			q.last.next = temp;
+			last = q.last;
+			size +=q.size;
+		}
+		q.last = null;
+		q.size=0;
+		
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<E> itr = iterator();
+		while(itr.hasNext()){
+			E tmp = itr.next();
+			sb.append(tmp.toString() + ", ");
+		}
+		return sb.toString();
 	}
 
 
