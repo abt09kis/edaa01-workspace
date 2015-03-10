@@ -1,0 +1,46 @@
+package mountain;
+
+import java.util.*;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain extends Fractal{
+	private Point p1;
+	private Point p2;
+	private Point p3;
+	private int dev;
+	private List<Side> sides;
+	private int level;
+	
+	public Mountain(Point p1, Point p2, Point p3, int dev){
+		super();
+		this.p1 = p1;
+		this.p2 = p2;
+		this.p3 = p3;
+		this.dev = dev;
+		level = 0;
+		sides = new LinkedList<Side>();
+	}
+	
+	
+	
+	
+	
+	@Override
+	public String getTitle() {
+		
+		return "Ett snett berg";
+	}
+	@Override
+	public void draw(TurtleGraphics turtle) {
+		fractalTriangle(turtle,order, dev, p1, p2, p3, level);
+		
+	}
+	
+	private void fractalTriangle(TurtleGraphics turtle, int dev, Point p1, Point p2, Point p3, int level){
+		
+	}
+	
+
+}

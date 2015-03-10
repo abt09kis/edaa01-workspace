@@ -1,0 +1,15 @@
+package mountain;
+
+import java.util.*;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain {
+	private Point p1;
+	private Point p2;
+	private Point p3;
+	private int dev;
+	private List<Sides> sides;
+
+}

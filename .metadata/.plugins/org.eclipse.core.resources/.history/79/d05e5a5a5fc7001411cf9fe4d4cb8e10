@@ -1,0 +1,28 @@
+package mountain;
+
+import java.util.*;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain extends Fractal{
+	private Point p1;
+	private Point p2;
+	private Point p3;
+	private int dev;
+	private List<Side> sides;
+	private int level;
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void draw(TurtleGraphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public Mou
+
+}

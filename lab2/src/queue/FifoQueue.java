@@ -133,18 +133,24 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 		private int count;
 		
 		private QueueIterator(){
-			pos = last;
+			if(last == null){
+				pos = null;
+			}else{
+				pos = last.next;
+			}
 			count = 0;
 		}
 		
 		public boolean hasNext(){
 			if (pos == null){
 				return false;
-			}else if(count >= size){
-				return false;
-			}else{
-				return true;
 			}
+			if(count >= size){
+				return false;
+			}
+			
+				return true;
+			
 		
 		}
 

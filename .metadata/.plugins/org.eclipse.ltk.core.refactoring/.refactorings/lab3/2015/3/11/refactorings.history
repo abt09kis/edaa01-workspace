@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;fractal.orderDownButton&apos; to &apos;OrderDownButton&apos;&#x0A;- Original project: &apos;lab3&apos;&#x0A;- Original element: &apos;fractal.orderDownButton&apos;&#x0A;- Renamed element: &apos;fractal.OrderDownButton&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;orderDownButton&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;fractal{orderDownButton.java[orderDownButton" matchStrategy="1" name="OrderDownButton" qualified="false" references="true" similarDeclarations="false" stamp="1426015246052" textual="false" version="1.0"/>
+</session>
