@@ -93,10 +93,10 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	
 	private void printTree(BinaryNode<E> n ){
 		if(n == null){
-			return;
+			System.out.println("Tomt träd");
 		}else{
 			printTree(n.left);
-			System.out.print(n.element);
+			System.out.print(n.element + " ");
 			printTree(n.right);
 		}
 	}

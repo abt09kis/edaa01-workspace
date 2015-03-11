@@ -22,11 +22,7 @@ public class testTree{
 		System.out.println(höjd);
 		System.out.println(storlek);
 		
-		tree. printTree();
-		
 		visualizer.drawTree(tree);
-		
-		
 
 	}
 
