@@ -8,6 +8,8 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * Constructs an empty binary searchtree.
 	 */
 	public BinarySearchTree() {
+	root = null;
+	size = 0;
 		
 	}
 
@@ -17,15 +19,60 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * @return true if the the element was inserted
 	 */
 	public boolean add(E x) {
-		return false;
+		if(root == null){
+			root = new BinaryNode<E>(x);
+			size++;
+			return true;
+		}else{
+			return add(root,x);
+		}
 	}
-	
+	private boolean add(BinaryNode<E> n, E x){
+		int compResult = x.compareTo(n.element);
+		if(compResult == 0){
+			return false;
+		}else if(compResult < 0 ){
+			if(n.left == null){
+				n.left = new BinaryNode<E>(x);
+				size++;
+				return true;
+			}else{
+				return add(n.left, x);
+			}
+		}else{ 
+			if(n.right == null){
+				n.right = new BinaryNode<E>(x);
+				size++;
+				return true;
+			}else{
+				return add(n.right,x);
+			}
+		}
+		
+	}
 	/**
 	 * Computes the height of tree.
 	 * @return the height of the tree
 	 */
 	public int height() {
-		return 0;
+			return height(root);
+	
+	}
+	
+	
+	private int height(BinaryNode<E> n){
+		if(n == null){
+			return 0;
+		}else{
+			int left = 1 + height(n.left);
+			int right = 1 + height(n.right);
+			if(left >= right){
+				return left;
+			}else{
+				return right;
+			}
+		}
+		
 	}
 	
 	/**
@@ -33,14 +80,25 @@ public class BinarySearchTree<E extends Comparable<? super E>> {
 	 * @return the number of elements in this tree
 	 */
 	public int size() {
-		return 0;
+		return size;
 	}
 	
 	/**
 	 * Print tree contents in inorder.
 	 */
 	public void printTree() {
+		printTree(root);
 
+	}
+	
+	private void printTree(BinaryNode<E> n ){
+		if(n == null){
+			System.out.println("Tomt träd");
+		}else{
+			printTree(n.left);
+			System.out.print(n.element + " ");
+			printTree(n.right);
+		}
 	}
 
 	/** 
