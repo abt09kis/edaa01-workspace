@@ -1,0 +1,24 @@
+package test;
+
+import map.SimpleHashMap;
+import java.util.Random;
+
+public class EgetTestSimpleHashMap {
+	public static void main(String[]args){
+		Random rand = new Random();
+		SimpleHashMap<Integer,Integer> map = new SimpleHashMap<Integer, Integer>(10);
+		System.out.println(map.show());
+		System.out.println(map.size());
+		System.out.println(map.isEmpty());
+		
+		for(int i = 0 ; i < 10; i++){
+			Integer temp = rand.nextInt();
+			map.put(temp,temp);
+		}
+		
+		System.out.println(map.show());
+		System.out.println(map.size());
+		System.out.println(map.isEmpty());
+	}
+
+}
